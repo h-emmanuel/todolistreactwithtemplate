@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.createTaskDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .formCreateDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+/* .displayTaskDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start
+} */
+
+.lineTask{
+  display: flex;
+  align-items: center;
+}
