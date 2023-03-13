@@ -60,7 +60,7 @@ class Form extends React.Component {
         console.log(e);
         let oldThis = this;
         try {
-            let res = await fetch("http://localhost:6000/create", {
+            let res = await fetch("http://localhost:5500/create", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ class Form extends React.Component {
             });
             let resJson = await res.json();
             if (res.status === 201) {
-                fetch("http://localhost:6000/api/tasks")
+                fetch("http://localhost:5500/api/tasks")
                     .then((res) => res.json())
                     .then((json) => {
                         oldThis.setState({
@@ -148,7 +148,7 @@ class Form extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:6000/api/tasks")
+        fetch("http://localhost:5500/api/tasks")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
@@ -165,7 +165,7 @@ class Form extends React.Component {
         console.log(event.target.dataset.idtask);
         let oldThis = this;
         async function deleteTask() {
-            const response = await fetch("http://localhost:6000/delete/" + event.target.dataset.idtask, {
+            const response = await fetch("http://localhost:5500/delete/" + event.target.dataset.idtask, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -183,7 +183,7 @@ class Form extends React.Component {
 
         deleteTask().then(function () {
             console.log("delete");
-            fetch("http://localhost:6000/api/tasks")
+            fetch("http://localhost:5500/api/tasks")
                 .then((res) => res.json())
                 .then((json) => {
                     oldThis.setState({
@@ -216,7 +216,7 @@ class Form extends React.Component {
                 description: ""
             }
         })
-        fetch("http://localhost:6000/api/task/" + idTask, {
+        fetch("http://localhost:5500/api/task/" + idTask, {
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -253,7 +253,7 @@ class Form extends React.Component {
         console.log(title);
         console.log(description);
 
-        fetch("http://localhost:6000/update", {
+        fetch("http://localhost:5500/update", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -279,7 +279,7 @@ class Form extends React.Component {
                 }
             })
 
-            fetch("http://localhost:6000/api/tasks")
+            fetch("http://localhost:5500/api/tasks")
                 .then((res) => res.json())
                 .then((json) => {
                     oldThis.setState({
